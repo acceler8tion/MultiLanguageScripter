@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class Translator {
@@ -66,5 +67,14 @@ public class Translator {
             scripts[i] = sc;
         }
         consumer.accept(scripts);
+    }
+
+    @Override
+    public String toString() {
+        Set<String> ks = languages.keySet();
+        return "Translator["+
+                "Total: "+ks.size()+" languages"+
+                ", List: {"+String.join(",", ks)+"}"+
+                "]";
     }
 }
